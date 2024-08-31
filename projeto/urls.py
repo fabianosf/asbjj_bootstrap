@@ -14,21 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib.sitemaps.views import sitemap
+
 from django.contrib import admin
 from django.urls import path, include
-from core.sitemaps import ItemUserSitemap
 from django.conf import settings
-from django.conf.urls.static import static
+from django.conf.urls.static import static 
+from accounts.views import robots
+from django.contrib.sitemaps.views import sitemap
+from accounts.sitemaps import StaticViewSitemap  # Importe o seu sitemap
 
 sitemaps = {
-    'items': ItemUserSitemap,
+    'static': StaticViewSitemap,
 }
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('core.urls')),
-    path('accounts/', include('accounts.urls')), 
+    path('accounts/', include('accounts.urls')),   
+    path('robots.txt', robots),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

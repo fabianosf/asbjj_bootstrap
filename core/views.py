@@ -20,6 +20,8 @@ def servicos(request):
     return render(request, "core/servicos.html")
 
 
+
+
 """ 
 def contato(request):
     if request.method == 'POST':
