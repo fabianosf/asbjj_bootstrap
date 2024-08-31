@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-ep24b3!wp^l@rdar&ki!2bvgn)p09%22_90@584f=%9ph$1^3!"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,11 +40,14 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
+    "django.contrib.sites",
     "core",
     "accounts",
     "crispy_forms",
     "crispy_bootstrap4", 
 ]
+
+SITE_ID=1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
