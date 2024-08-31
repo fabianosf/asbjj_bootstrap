@@ -47,7 +47,33 @@ INSTALLED_APPS = [
     "crispy_bootstrap4", 
 ]
 
-SITE_ID=1
+SITE_ID = 1
+
+# Desativar redirecionamento para HTTPS no desenvolvimento
+SECURE_SSL_REDIRECT = False
+
+# Cookies não seguros para desenvolvimento
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
+# HSTS
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+
+# Proteções contra Clickjacking e MIME Sniffing
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+
+# Políticas de segurança adicionais
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+SECURE_CROSS_ORIGIN_EMBEDDER_POLICY = None
+
+
+
+
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
