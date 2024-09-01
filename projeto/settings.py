@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-ep24b3!wp^l@rdar&ki!2bvgn)p09%22_90@584f=%9ph$1^3!"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['asbjj.com.br', 'www.asbjj.com.br']
 
@@ -65,6 +65,31 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
+
+# Desativar redirecionamento para HTTPS no desenvolvimento
+SECURE_SSL_REDIRECT = False
+
+# Cookies não seguros para desenvolvimento
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+
+# HSTS
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+
+# Proteções contra Clickjacking e MIME Sniffing
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
+
+# Políticas de segurança adicionais
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+SECURE_CROSS_ORIGIN_EMBEDDER_POLICY = None
+
+
+
+
 
 
 MIDDLEWARE = [
