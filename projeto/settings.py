@@ -26,8 +26,25 @@ SECRET_KEY = "django-insecure-ep24b3!wp^l@rdar&ki!2bvgn)p09%22_90@584f=%9ph$1^3!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['asbjj.com.br', 'www.asbjj.com.br']
 
+
+# Seguranca
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = False  # Redireciona todas as requisições para HTTPS
+SECURE_HSTS_SECONDS = 31536000  # Força HTTPS por um ano
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_BROWSER_XSS_FILTER = True
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://asbjj.com.br',
+    'https://www.asbjj.com.br'
+ ]
 
 
 # Application definition
@@ -40,11 +57,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
+    "django.contrib.sites",
     "core",
     "accounts",
     "crispy_forms",
     "crispy_bootstrap4", 
 ]
+
+SITE_ID = 1
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
